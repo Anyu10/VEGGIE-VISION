@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1>Veggie Vision - take care of your health</h1>
+
+<form method="POST" enctype="multipart/form-data">
+  <div>
+    <br /><br /><br /><br />
+    <input id="inputFile" type="file" accept=".jpg, .jpeg, .png" name="photo">
+    <button type="submit" class="btn btn-primary" align="center">Submit Image</button>
+    <br /> <br /> <br /> <br />
+
+    <img src="" id="previewImage" alt="preview" align="center">
+    <script>
+        const $ = document.getElementById.bind(document);
+        const $inputFile = $('inputFile');
+        const $previewImage = $('previewImage');
+        $inputFile.addEventListener('change', function() {
+            const file = this.files[0];
+            $previewImage.src = file ? URL.createObjectURL(file) : '';
+        }, this);
+    </script>
+
+    <br />
+  </div>
+</form>
+
+{% endblock %}
